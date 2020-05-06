@@ -321,7 +321,7 @@ Resources:
           - Name: REPOSITORY_BRANCH
             Value: !Ref GitBranch
           - Name: EKS_CLUSTER_NAME
-            Value: simple-jwt-api
+            Value: !Ref EksClusterName
           - Name: EKS_KUBECTL_ROLE_ARN
             Value: !Sub arn:aws:iam::${AWS::AccountId}:role/${KubectlRoleName}
       Name: !Ref AWS::StackName
