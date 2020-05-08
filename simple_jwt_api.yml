@@ -1,19 +1,19 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: simple-jwt-api
+  name: simple-jwt-appi
 spec:
   type: LoadBalancer
   ports:
     - port: 80
       targetPort: 8080
   selector:
-    app: simple-jwt-api
+    app: simple-jwt-appi
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: simple-jwt-api
+  name: simple-jwt-appi
 spec:
   replicas: 3
   strategy:
@@ -23,15 +23,16 @@ spec:
       maxSurge: 2
   selector:
     matchLabels:
-      app: simple-jwt-api
+      app: simple-jwt-appi
   template:
     metadata:
       labels:
-        app: simple-jwt-api
+        app: simple-jwt-appi
     spec:
       containers:
-        - name: simple-jwt-api
-          image: CONTAINER_IMAGE
+        - name: simple-jwt-appi
+          # image: CONTAINER_IMAGE
+          image: aws/codebuild/docker:17.09.0
           securityContext:
             privileged: false
             readOnlyRootFilesystem: false
