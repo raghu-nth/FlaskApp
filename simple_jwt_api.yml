@@ -31,8 +31,8 @@ spec:
     spec:
       containers:
         - name: simple-jwt-appi
-          # image: CONTAINER_IMAGE
-          image: aws/codebuild/docker:17.09.0
+          image: CONTAINER_IMAGE
+          # image: aws/codebuild/docker:17.09.0
           securityContext:
             privileged: false
             readOnlyRootFilesystem: false
